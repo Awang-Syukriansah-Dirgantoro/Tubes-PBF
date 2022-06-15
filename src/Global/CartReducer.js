@@ -16,7 +16,7 @@ export const CartReducer = (state, action) => {
 
             const check = shoppingCart.find(product => product.ProductID === action.id);
             if (check) {
-                toast.info('this product is already in your cart', {
+                toast.info('Produk Ini Sudah Dimasukan Keranjang', {
                     position: "top-right",
                     autoClose: 2000,
                     hideProgressBar: false,

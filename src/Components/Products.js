@@ -10,9 +10,9 @@ export const Products = () => {
 
     return (
         <>
-            {products.length !== 0 && <h1>Products</h1>}
+            {products.length !== 0 && <h1 align="center">Kami Mempunyai Produk</h1>}
             <div className='products-container'>
-                {products.length === 0 && <div>slow internet...no products to display</div>}
+                {products.length === 0 && <div>Internet Anda Lemot Mohon Tunggu</div>}
                 {products.map(product => (
                     <div className='product-card' key={product.ProductID}>
                         <div className='product-img'>
@@ -22,9 +22,9 @@ export const Products = () => {
                             {product.ProductName}
                         </div>
                         <div className='product-price'>
-                            Rs {product.ProductPrice}.00
+                            Rp {product.ProductPrice}.00,-
                     </div>
-                        <button className='addcart-btn' onClick={() => dispatch({ type: 'ADD_TO_CART', id: product.ProductID, product })}>ADD TO CART</button>
+                        <button className='addcart-btn' onClick={() => dispatch({ type: 'ADD_TO_CART', id: product.ProductID, product })}>Tambahkan Produk</button>
                     </div>
                 ))}
             </div>

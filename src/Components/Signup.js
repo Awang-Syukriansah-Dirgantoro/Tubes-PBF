@@ -35,7 +35,7 @@ export const Signup = (props) => {
             <h2>Sign up</h2>
             <br />
             <form autoComplete="off" className='form-group' onSubmit={signup}>
-                <label htmlFor="name">Name</label>
+                <label htmlFor="name">Nama</label>
                 <input type="text" className='form-control' required
                     onChange={(e) => setName(e.target.value)} value={name} />
                 <br />
@@ -51,8 +51,8 @@ export const Signup = (props) => {
             </form>
             {error && <span className='error-msg'>{error}</span>}
             <br />
-            <span>Already have an account? Login
-                <Link to="/login"> Here</Link>
+            <span>Sudah Punya Akun? Login
+                <Link to="/login"> Disini</Link>
             </span>
         </div>
     )

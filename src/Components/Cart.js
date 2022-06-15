@@ -6,7 +6,7 @@ import { ic_add } from 'react-icons-kit/md/ic_add'
 import { ic_remove } from 'react-icons-kit/md/ic_remove'
 import { iosTrashOutline } from 'react-icons-kit/ionicons/iosTrashOutline'
 import { Link } from 'react-router-dom'
-import { useHistory } from 'react-router-dom'
+import { useNavigate as useHistory } from 'react-router-dom'
 import { auth } from '../Config/Config'
 
 export const Cart = ({ user }) => {
@@ -18,7 +18,7 @@ export const Cart = ({ user }) => {
     useEffect(() => {
         auth.onAuthStateChanged(user => {
             if (!user) {
-                history.push('/login');
+                history('/login');
             }
         })
     })
@@ -78,7 +78,7 @@ export const Cart = ({ user }) => {
                             <span>Total Qty</span>
                             <span>{totalQty}</span>
                         </div>
-                        <Link to='cashout' className='cashout-link'>
+                        <Link to='/cashout' className='cashout-link'>
                             <button className='btn btn-success btn-md' style={{ marginTop: 5 + 'px' }}>
                                 Cash on delivery
                         </button>

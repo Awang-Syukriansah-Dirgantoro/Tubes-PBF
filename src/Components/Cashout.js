@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import { auth, db } from '../Config/Config'
 import { CartContext } from '../Global/CartContext'
 import { Navbar } from './Navbar';
-import { useHistory } from 'react-router-dom'
+import { useNavigate as useHistory } from 'react-router-dom'
 
 export const Cashout = (props) => {
 
@@ -27,7 +27,7 @@ export const Cashout = (props) => {
                 })
             }
             else {
-                history.push('/login')
+                history('/login')
             }
         })
     })
@@ -51,7 +51,7 @@ export const Cashout = (props) => {
                     dispatch({ type: 'EMPTY' })
                     setSuccessMsg('Your order has been placed successfully. Thanks for visiting us. You will be redirected to home page after 5 seconds');
                     setTimeout(() => {
-                        history.push('/')
+                        history('/')
                     }, 5000)
                 }).catch(err => setError(err.message))
             }

@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import { auth } from '../Config/Config'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export const Login = (props) => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const history = useNavigate();
 
     const login = (e) => {
         e.preventDefault();
@@ -14,7 +15,8 @@ export const Login = (props) => {
             setEmail('');
             setPassword('');
             setError('');
-            props.history.push('/');
+            history('/');
+            // navigation.navigate('/');
         }).catch(err => setError(err.message));
     }
 
@@ -37,7 +39,7 @@ export const Login = (props) => {
             {error && <span className='error-msg'>{error}</span>}
             <br/>
             <span>Don't have an account? Register
-                <Link to="signup"> Here</Link>
+                <Link to="/signup"> Here</Link>
             </span>
         </div>
     )

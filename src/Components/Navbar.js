@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { auth } from '../Config/Config'
 import { Icon } from 'react-icons-kit'
 import { cart } from 'react-icons-kit/entypo/cart'
-import { useHistory } from 'react-router-dom'
+import { useNavigate as useHistory } from 'react-router-dom'
 import { CartContext } from '../Global/CartContext'
 
 export const Navbar = ({ user }) => {
@@ -15,7 +15,7 @@ export const Navbar = ({ user }) => {
     // handle logout
     const handleLogout = () => {
         auth.signOut().then(() => {
-            history.push('/login');
+            history('/login');
         })
     }
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { auth, db } from '../Config/Config'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export const Signup = (props) => {
 
@@ -9,6 +9,7 @@ export const Signup = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const history = useNavigate();
 
     // signup
     const signup = (e) => {
@@ -23,7 +24,7 @@ export const Signup = (props) => {
                 setEmail('');
                 setPassword('');
                 setError('');
-                props.history.push('/login');
+                history('/login');
             }).catch(err => setError(err.message));
         }).catch(err => setError(err.message));
     }
@@ -51,7 +52,7 @@ export const Signup = (props) => {
             {error && <span className='error-msg'>{error}</span>}
             <br />
             <span>Already have an account? Login
-                <Link to="login"> Here</Link>
+                <Link to="/login"> Here</Link>
             </span>
         </div>
     )

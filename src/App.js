@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { ProductsContextProvider } from './Global/ProductsContext'
 import { Home } from './Components/Home'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Routes as Switch, Route } from 'react-router-dom'
 import { Signup } from './Components/Signup'
 import { Login } from './Components/Login'
 import { NotFound } from './Components/NotFound'
@@ -44,18 +44,18 @@ export class App extends Component {
                     <BrowserRouter>
                         <Switch>
                             {/* home */}
-                            <Route exact path='/' component={() => <Home user={this.state.user} />} />
+                            <Route exact path='/' element={<Home user={this.state.user} />} />
                             {/* signup */}
-                            <Route path="/signup" component={Signup} />
+                            <Route path="/signup" element={<Signup/>} />
                             {/* login */}
-                            <Route path="/login" component={Login} />
+                            <Route path="/login" element={<Login/>} />
                             {/* cart products */}
-                            <Route path="/cartproducts" component={() => <Cart user={this.state.user} />} />
+                            <Route path="/cartproducts" element={<Cart user={this.state.user} />} />
                             {/* add products */}
-                            <Route path="/addproducts" component={AddProducts} />
+                            <Route path="/addproducts" element={<AddProducts/>} />
                             {/* cashout */}
-                            <Route path='/cashout' component={() => <Cashout user={this.state.user} />} />
-                            <Route component={NotFound} />
+                            <Route path='/cashout' element={<Cashout user={this.state.user} />} />
+                            <Route element={<NotFound/>} />
                         </Switch>
                     </BrowserRouter>
                 </CartContextProvider>

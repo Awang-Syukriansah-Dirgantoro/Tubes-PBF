@@ -27,7 +27,7 @@ export const Cart = ({ user }) => {
         <>
             <Navbar user={user} />
             <>
-                {shoppingCart.length !== 0 && <h1>Cart</h1>}
+                {shoppingCart.length !== 0 && <h1>Keranjang</h1>}
                 <div className='cart-container'>
                     {
                         shoppingCart.length === 0 && <>
@@ -44,7 +44,7 @@ export const Cart = ({ user }) => {
 
                             <div className='cart-name'>{cart.ProductName}</div>
 
-                            <div className='cart-price-orignal'>Rs {cart.ProductPrice}.00</div>
+                            <div className='cart-price-orignal'>Rp {cart.ProductPrice}.00,-</div>
 
                             <div className='inc' onClick={() => dispatch({ type: 'INC', id: cart.ProductID, cart })}>
                                 <Icon icon={ic_add} size={24} />
@@ -68,19 +68,19 @@ export const Cart = ({ user }) => {
                     }
                     {shoppingCart.length > 0 && <div className='cart-summary'>
                         <div className='cart-summary-heading'>
-                            Cart-Summary
+                            Detail Keranjang
                         </div>
                         <div className='cart-summary-price'>
-                            <span>Total Price</span>
+                            <span>Total Harga</span>
                             <span>{totalPrice}</span>
                         </div>
                         <div className='cart-summary-price'>
-                            <span>Total Qty</span>
+                            <span>Total Kuantintas</span>
                             <span>{totalQty}</span>
                         </div>
                         <Link to='cashout' className='cashout-link'>
                             <button className='btn btn-success btn-md' style={{ marginTop: 5 + 'px' }}>
-                                Cash on delivery
+                                Pesan Sekarang
                         </button>
                         </Link>
                     </div>}
